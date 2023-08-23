@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Reddit-Style Chat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <!-- <div class="container">
+        <ul id="messages"></ul>
+        <form id="form" action="">
+            <input id="input" autocomplete="off" /><button>Send</button>
+        </form>
+    </div> -->
+    <!-- <div class="container">
+        <ul id="messages"></ul>
+        <form id="form" class="form-container" action="">
+            <input id="input" autocomplete="off" placeholder="Type your message..." />
+            <button>Send</button>
+        </form>
+    </div> -->
+    <!-- <div class="container">
+        <div id="messages" class="messages"></div>
+        <form id="form" class="form" action="">
+            <input id="input" class="input" autocomplete="off" placeholder="Type your message..." />
+            <button class="send-button">Send</button>
+        </form>
+    </div>  -->
+    <div class="container">
+        <div class="header">
+            <div class="app-name">-100x chat</div>
+            <label class="toggle">
+                <input type="checkbox" id="toggle-theme" />
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <div id="messages" class="messages" ></div>
+        <form id="form" class="form" action="">
+            <div class="input-row">
+                <input class="username-input" autocomplete="off" placeholder="Username" />
+                <input class="message-input" autocomplete="off" placeholder="Type your message..." />
+                <button class="send-button">Send</button>
+            </div>
+        </form>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
