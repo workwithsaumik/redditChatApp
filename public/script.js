@@ -20,9 +20,25 @@
 // });
 const socket = io();
 
+// const emojiDictionary = {
+//   ":)": "😊",
+//   ":(": "😢",
+//   ":D": "😄",
+//   ":heart:": "❤️",
+//   ":thumbsup:": "👍",
+//   ":rocket:": "🚀",
+//   ":react": "⚛️",
+//   ":woah": "😲",
+//   ":hey": "👋",
+//   ":lol": "😂",
+//   ":like": "🤍",
+//   ":congratulations": "🎉",
+//   // Add more word-emoji pairs as needed
+// };
+
 const emojiDictionary = {
-  ":)": "😊",
-  ":(": "😢",
+  ":\\)": "😊",
+  ":\\(": "😢",
   ":D": "😄",
   ":heart:": "❤️",
   ":thumbsup:": "👍",
@@ -40,17 +56,34 @@ document.querySelector("#form").addEventListener("submit", (e) => {
   e.preventDefault();
   const usernameInput = document.querySelector(".username-input");
   const messageInput = document.querySelector(".message-input");
-  const username = usernameInput.value.trim();
-  const message = messageInput.value.trim();
+  let username = usernameInput.value.trim();
+  let originalMessage = messageInput.value.trim();
+  let modifiedMessage = originalMessage;
+
+  // Convert words to emojis in the message
+  //   for (const word in emojiDictionary) {
+  //     const emoji = emojiDictionary[word];
+  //     message = message.replace(new RegExp(word, "g"), emoji);
+  //   }
 
   // Convert words to emojis in the message
   for (const word in emojiDictionary) {
     const emoji = emojiDictionary[word];
-    message = message.replace(new RegExp(word, "g"), emoji);
+    const escapedWord = word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const regex = new RegExp(escapedWord, "g");
+    modifiedMessage = modifiedMessage.replace(regex, emoji);
   }
 
-  if (username !== "" && message !== "") {
-    socket.emit("chat message", { username, message });
+  // if (username !== "" && message !== "") {
+  //   socket.emit("chat message", { username, message });
+  //   usernameInput.value = "";
+  //   messageInput.value = "";
+  // }
+  if (username === "") {
+    username = "Anonymous";
+  }
+  if (modifiedMessage !== "") {
+    socket.emit("chat message", { username, message: modifiedMessage });
     usernameInput.value = "";
     messageInput.value = "";
   }
