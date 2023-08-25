@@ -21,18 +21,18 @@
 const socket = io();
 
 const emojiDictionary = {
-  ":)": "😊",
-  ":(": "😢",
-  ":D": "😄",
-  ":heart:": "❤️",
-  ":thumbsup:": "👍",
-  ":rocket:": "🚀",
-  ":react": "⚛️",
-  ":woah": "😲",
-  ":hey": "👋",
-  ":lol": "😂",
-  ":like": "🤍",
-  ":congratulations": "🎉",
+  ")": "😊",
+  "(": "😢",
+  "D": "😄",
+  "heart:": "❤️",
+  "thumbsup:": "👍",
+  "rocket:": "🚀",
+  "react": "⚛️",
+  "woah": "😲",
+  "hey": "👋",
+  "lol": "😂",
+  "like": "🤍",
+  "congratulations": "🎉",
   // Add more word-emoji pairs as needed
 };
 
@@ -41,12 +41,12 @@ document.querySelector("#form").addEventListener("submit", (e) => {
   const usernameInput = document.querySelector(".username-input");
   const messageInput = document.querySelector(".message-input");
   const username = usernameInput.value.trim();
-  const message = messageInput.value.trim();
+  let message = messageInput.value.trim();
 
   // Convert words to emojis in the message
   for (const word in emojiDictionary) {
     const emoji = emojiDictionary[word];
-    message = message.replace(new RegExp(word, "g"), emoji);
+    message = message.replace(word, emoji);
   }
 
   if (username !== "" && message !== "") {
