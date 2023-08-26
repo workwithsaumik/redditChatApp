@@ -1,28 +1,40 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background-color: #000;
+    color: #fff;
 }
 
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #181818;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.breaking-bad-theme {
+    margin-bottom: 20px;
+}
+
+.say-my-name-gif {
+    max-width: 100%;
+    height: auto;
 }
 
 .messages {
     list-style-type: none;
     padding: 0;
+    margin-bottom: 20px;
 }
 
 .message {
     margin-bottom: 10px;
     padding: 10px;
-    background-color: #f7f7f7;
+    background-color: #323232;
     border-radius: 8px;
     position: relative;
     display: block;
@@ -31,32 +43,36 @@ body {
 .input-row {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
-.username-input {
+.username-input,
+.message-input {
     flex: 1;
     padding: 10px;
     border-radius: 4px;
     border: 1px solid #ccc;
     margin-right: 10px;
+    background-color: #252525;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 .message-input {
     flex: 2;
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    margin-right: 10px;
 }
 
 .send-button {
-    padding: 10px;
+    padding: 10px 20px;
     background-color: #0079d3;
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 @media (max-width: 600px) {
@@ -64,7 +80,6 @@ body {
         padding: 10px;
     }
 }
-/* ... existing styles ... */
 
 .header {
     display: flex;
@@ -117,11 +132,11 @@ body {
     border-radius: 50%;
 }
 
-input:checked + .slider {
+input:checked+.slider {
     background-color: #0079d3;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
     transform: translateX(26px);
 }
 
@@ -132,10 +147,6 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
-
-/* ... existing styles ... */
-
-
 
 .tooltip {
     visibility: hidden;
@@ -158,6 +169,3 @@ input:checked + .slider:before {
     visibility: visible;
     opacity: 1;
 }
-
-/* ... remaining styles ... */
-
