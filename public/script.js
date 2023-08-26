@@ -125,7 +125,10 @@ function showHelpPopup() {
     "Available slash commands:\n" +
       "/help - Show available commands\n" +
       "/random - Generate a random number\n" +
-      "/clear - Clear the chat"
+      "/clear - Clear the chat\n" +
+      "/rem <name> <value>  Set a value and by the given name\n" +
+      "/rem <name> recall the value\n" +
+      "/calc <expression> will post the result of the calculator\n"
   );
 }
 
