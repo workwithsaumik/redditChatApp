@@ -1,23 +1,3 @@
-// const socket = io();
-
-// const username = prompt("Please enter your username:");
-
-// document.querySelector("#form").addEventListener("submit", (e) => {
-//     e.preventDefault();
-//     const messageInput = document.querySelector("#input");
-//     const message = messageInput.value;
-//     if (message.trim() !== "") {
-//         socket.emit("chat message", { username, message });
-//         messageInput.value = "";
-//     }
-// });
-
-// socket.on("chat message", (msg) => {
-//     const messages = document.querySelector("#messages");
-//     const li = document.createElement("li");
-//     li.textContent = `${msg.username}: ${msg.message}`;
-//     messages.appendChild(li);
-// });
 const socket = io();
 
 const emojiDictionary = {
@@ -41,13 +21,18 @@ document.querySelector("#form").addEventListener("submit", (e) => {
   const usernameInput = document.querySelector(".username-input");
   const messageInput = document.querySelector(".message-input");
   const username = usernameInput.value.trim();
-  let message = messageInput.value.trim();
+  let message = messageInput.value.trim().toLowerCase();
 
-  // Convert words to emojis in the message
+  //Convert words to emojis in the message
   for (const word in emojiDictionary) {
     const emoji = emojiDictionary[word];
     message = message.replace(word, emoji);
   }
+
+  // // Convert words to emojis in the message (case-insensitive)
+  // emojiDictionary.forEach((emoji, word) => {
+  //   message = message.replace(word, emoji);
+  // });
 
   if (username !== "" && message !== "") {
     socket.emit("chat message", { username, message });
