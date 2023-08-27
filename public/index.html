@@ -5,27 +5,40 @@
     <title>Breaking Bad Chat</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
 </head>
 
 <body>
+    <div class="centered-popup" id="username-popup">
+        <div class="popup-content">
+            <div class="breaking-bad-theme">
+                <img src="saymyname.gif" alt="Say My Name" class="say-my-name-gif">
+            </div>
+            <div class="username-input-container">
+                <input class="username-input" autocomplete="off" placeholder="Enter your username">
+                <button class="username-submit-button">Submit</button>
+            </div>
+        </div>
+    </div>
     <div class="container">
+        <div class="header">
+            <div class="app-name">-100x chat</div>
+            <label class="toggle">
+                <input type="checkbox" id="toggle-theme" />
+                <span class="slider round"></span>
+            </label>
+        </div>
         <div class="sidebar">
             <div class="breaking-bad-theme">
                 <img src="saymyname.gif" alt="Say My Name" class="say-my-name-gif">
             </div>
             <div class="username-input-container">
                 <input class="username-input" autocomplete="off" placeholder="Enter your username">
-                <!-- <button class="username-submit-button">Submit</button> -->
+                <button class="username-submit-button">Submit</button>
             </div>
         </div>
         <div class="content">
-            <div class="header">
-                <div class="app-name">-100x chat</div>
-                <label class="toggle">
-                    <input type="checkbox" id="toggle-theme" />
-                    <span class="slider round"></span>
-                </label>
-            </div>
             <div id="messages" class="messages"></div>
             <form id="form" class="form" action="">
                 <div class="input-row">
@@ -35,7 +48,7 @@
             </form>
         </div>
     </div>
-    <script src="/socket.io/socket.io.js"></script>
+    <!-- <script src="/socket.io/socket.io.js"></script> -->
     <script src="script.js"></script>
 </body>
 

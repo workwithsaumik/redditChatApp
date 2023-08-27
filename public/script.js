@@ -1,4 +1,39 @@
 const socket = io();
+
+// Reference to the username input element in the popup
+const usernameInputPopup = document.querySelector(".username-input");
+
+// Reference to the popup and its container
+const popup = document.getElementById("username-popup");
+const popupContent = document.querySelector(".popup-content");
+
+// Open the popup when the page loads
+window.addEventListener("load", () => {
+  if (popup) {
+    popup.style.display = "flex";
+  }
+});
+
+// document.addEventListener("submit", (e) => {
+popupContent.addEventListener("submit", (e) => {
+  if (e.target.closest(".popup-content")) {
+    // ...
+    e.preventDefault();
+    const username = usernameInputPopup.value.trim();
+
+    if (username !== "") {
+      // Close the popup
+      popup.style.display = "none";
+
+      // Set the username in the username input field
+      const usernameInput = document.querySelector(".username-input");
+      usernameInput.value = username;
+    }
+  }
+});
+
+// Rest of your existing code...
+
 const memory = {};
 const emojiDictionary = {
   ")": "😊",
@@ -32,11 +67,6 @@ document.querySelector("#form").addEventListener("submit", (e) => {
       const emoji = emojiDictionary[word];
       message = message.replace(word, emoji);
     }
-
-    // // Convert words to emojis in the message (case-insensitive)
-    // emojiDictionary.forEach((emoji, word) => {
-    //   message = message.replace(word, emoji);
-    // });
 
     if (username !== "" && message !== "") {
       socket.emit("chat message", { username, message });
@@ -79,21 +109,6 @@ toggleTheme.addEventListener("change", () => {
 });
 
 function handleSlashCommand(command) {
-  //   switch (command) {
-  //     case "/help":
-  //       showHelpPopup();
-  //       break;
-  //     case "/random":
-  //       generateRandomNumber();
-  //       break;
-  //     case "/clear":
-  //       clearChat();
-  //       break;
-  //     default:
-  //       // Handle unknown commands
-  //       break;
-  //   }
-  // }
   const parts = command.split(" ");
   const cmd = parts[0];
   const args = parts.slice(1);
