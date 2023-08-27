@@ -14,15 +14,27 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
+    position: relative;
 }
 
 .breaking-bad-theme {
-    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
 }
 
 .say-my-name-gif {
-    max-width: 100%;
+    max-width: 40px;
     height: auto;
+    margin-right: 5px;
+}
+
+.username-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the input box and GIF horizontally */
+    margin-top: 5px;
 }
 
 .messages {
@@ -47,7 +59,29 @@ body {
     margin-bottom: 20px;
 }
 
-.username-input,
+.username-input {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #252525;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    width: 200px; /* Adjust the width as needed */
+}
+
+.message-input {
+    flex: 2;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #252525;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* .username-input,
 .message-input {
     flex: 1;
     padding: 10px;
@@ -58,7 +92,7 @@ body {
     color: #fff;
     font-weight: bold;
     font-size: 14px;
-}
+} */
 
 .message-input {
     flex: 2;
