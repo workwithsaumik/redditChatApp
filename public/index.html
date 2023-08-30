@@ -11,14 +11,14 @@
 
 <body>
     <div class="centered-popup" id="username-popup">
-        <div class="popup-content">
+        <div class="popup-content" action="">
             <div class="breaking-bad-theme">
                 <img src="saymyname.gif" alt="Say My Name" class="say-my-name-gif">
             </div>
-            <div class="username-input-container">
+            <form id="f1"class="username-input-container">
                 <input class="username-input" autocomplete="off" placeholder="Enter your username">
-                <button class="username-submit-button">Submit</button>
-            </div>
+                <button class="username-submit-button" type="submit">Submit</button>
+            </form>
         </div>
     </div>
     <div class="container">
@@ -49,7 +49,7 @@
         </div>
     </div>
     <!-- <script src="/socket.io/socket.io.js"></script> -->
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
 </body>
 
 </html>

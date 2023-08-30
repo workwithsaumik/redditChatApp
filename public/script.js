@@ -14,9 +14,9 @@ window.addEventListener("load", () => {
   }
 });
 
-// document.addEventListener("submit", (e) => {
-popupContent.addEventListener("submit", (e) => {
-  if (e.target.closest(".popup-content")) {
+document.querySelector("#f1").addEventListener("submit", (e) => {
+// #f1.addEventListener("submit", (e) => {
+  // if (e.target.closest(".popup-content")) {
     // ...
     e.preventDefault();
     const username = usernameInputPopup.value.trim();
@@ -29,7 +29,7 @@ popupContent.addEventListener("submit", (e) => {
       const usernameInput = document.querySelector(".username-input");
       usernameInput.value = username;
     }
-  }
+  
 });
 
 // Rest of your existing code...
